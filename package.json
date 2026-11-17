@@ -1,0 +1,51 @@
+{
+  "name": "discord-multi-web",
+  "version": "1.0.0",
+  "description": "Multi-Account Discord Web Client with isolated sessions and split-screen mode for macOS",
+  "main": "main.js",
+  "scripts": {
+    "start": "electron .",
+    "dist": "electron-builder",
+    "dist:mac": "electron-builder --mac",
+    "dist:win": "electron-builder --win",
+    "dist:linux": "electron-builder --linux"
+  },
+  "keywords": [
+    "discord",
+    "multi-account",
+    "multi-instance",
+    "web-client",
+    "electron"
+  ],
+  "author": "ShappeCloud",
+  "license": "MIT",
+  "devDependencies": {
+    "electron": "^34.2.0"
+  },
+  "build": {
+    "appId": "com.shappecloud.multicordweb",
+    "productName": "MultiCord Web",
+    "mac": {
+      "category": "public.app-category.social-networking",
+      "icon": "icon.icns",
+      "target": [
+        "dmg",
+        "zip"
+      ]
+    },
+    "win": {
+      "icon": "icon.png",
+      "target": [
+        "nsis",
+        "portable"
+      ]
+    },
+    "linux": {
+      "icon": "icon.png",
+      "target": [
+        "AppImage",
+        "deb"
+      ]
+    }
+  }
+}

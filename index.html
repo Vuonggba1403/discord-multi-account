@@ -1,0 +1,168 @@
+<!DOCTYPE html>
+<html lang="vi">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>MultiCord Web</title>
+  <link rel="stylesheet" href="styles.css">
+</head>
+<body>
+  <!-- Discord-Themed App Splash Screen -->
+  <div id="splash-screen" class="splash-screen">
+    <div class="splash-content">
+      <div class="splash-logo-wrapper">
+        <div class="splash-glow"></div>
+        <svg class="splash-discord-logo" viewBox="0 0 127.14 96.36">
+          <path fill="currentColor" d="M107.7,8.07A105.15,105.15,0,0,0,81.47,0a72.06,72.06,0,0,0-3.36,6.83A97.68,97.68,0,0,0,49,6.83,72.37,72.37,0,0,0,45.64,0,105.89,105.89,0,0,0,19.39,8.09C2.79,32.65-1.71,56.6.54,80.21h0A105.73,105.73,0,0,0,32.71,96.36,77.7,77.7,0,0,0,39.6,85.25a68.42,68.42,0,0,1-10.85-5.18c.91-.66,1.8-1.34,2.66-2a75.57,75.57,0,0,0,64.32,0c.87.71,1.76,1.39,2.66,2a68.68,68.68,0,0,1-10.87,5.19,77,77,0,0,0,6.89,11.1A105.25,105.25,0,0,0,126.6,80.22h0C129.24,52.84,122.09,29.11,107.7,8.07ZM42.45,65.69C36.18,65.69,31,60,31,53s5-12.74,11.43-12.74S54,46,53.86,53,48.81,65.69,42.45,65.69Zm42.24,0C78.41,65.69,73.25,60,73.25,53s5-12.74,11.44-12.74S96.23,46,96.12,53,91.08,65.69,84.69,65.69Z"/>
+        </svg>
+      </div>
+      <h1 class="splash-title">MultiCord Web</h1>
+      <p class="splash-quote" id="splash-quote">Đang tối ưu hóa tài nguyên phần cứng & phân vùng dữ liệu...</p>
+      <div class="splash-progress-track">
+        <div class="splash-progress-bar"></div>
+      </div>
+      <div class="splash-footer">Hệ thống Đa Tài Khoản Độc Lập cho macOS</div>
+    </div>
+  </div>
+
+  <div class="app-layout">
+    <!-- Left Sidebar: Discord Style Account Switcher -->
+    <aside class="sidebar">
+      <div class="brand-item" title="MultiCord Web">
+        <svg class="discord-logo" viewBox="0 0 127.14 96.36">
+          <path fill="currentColor" d="M107.7,8.07A105.15,105.15,0,0,0,81.47,0a72.06,72.06,0,0,0-3.36,6.83A97.68,97.68,0,0,0,49,6.83,72.37,72.37,0,0,0,45.64,0,105.89,105.89,0,0,0,19.39,8.09C2.79,32.65-1.71,56.6.54,80.21h0A105.73,105.73,0,0,0,32.71,96.36,77.7,77.7,0,0,0,39.6,85.25a68.42,68.42,0,0,1-10.85-5.18c.91-.66,1.8-1.34,2.66-2a75.57,75.57,0,0,0,64.32,0c.87.71,1.76,1.39,2.66,2a68.68,68.68,0,0,1-10.87,5.19,77,77,0,0,0,6.89,11.1A105.25,105.25,0,0,0,126.6,80.22h0C129.24,52.84,122.09,29.11,107.7,8.07ZM42.45,65.69C36.18,65.69,31,60,31,53s5-12.74,11.43-12.74S54,46,53.86,53,48.81,65.69,42.45,65.69Zm42.24,0C78.41,65.69,73.25,60,73.25,53s5-12.74,11.44-12.74S96.23,46,96.12,53,91.08,65.69,84.69,65.69Z"/>
+        </svg>
+      </div>
+
+      <div class="sidebar-divider"></div>
+
+      <!-- Accounts list dynamically rendered with close button on hover -->
+      <div id="accounts-container" class="accounts-list">
+        <!-- Rendered via renderer.js -->
+      </div>
+
+      <!-- Add New Account Button -->
+      <div class="sidebar-action" id="btn-add-account" title="Thêm tài khoản Discord mới (Cmd+T)">
+        <div class="action-icon add-icon">
+          <svg viewBox="0 0 24 24" width="22" height="22">
+            <path fill="currentColor" d="M19 11h-6V5h-2v6H5v2h6v6h2v-6h6z"/>
+          </svg>
+        </div>
+      </div>
+
+      <div class="sidebar-divider"></div>
+
+      <!-- Split Screen Toggle Button -->
+      <div class="sidebar-action" id="btn-toggle-split" title="Chia đôi màn hình (Cmd+D)">
+        <div class="action-icon split-icon">
+          <svg viewBox="0 0 24 24" width="20" height="20">
+            <path fill="currentColor" d="M3 5v14h18V5H3zm7 12H5V7h5v10zm9 0h-7V7h7v10z"/>
+          </svg>
+        </div>
+      </div>
+
+      <!-- Reload Active Account Button -->
+      <div class="sidebar-action" id="btn-reload" title="Tải lại trang (Cmd+R)">
+        <div class="action-icon reload-icon">
+          <svg viewBox="0 0 24 24" width="18" height="18">
+            <path fill="currentColor" d="M17.65 6.35C16.2 4.9 14.21 4 12 4c-4.42 0-7.99 3.58-7.99 8s3.57 8 7.99 8c3.73 0 6.84-2.55 7.73-6h-2.08c-.82 2.33-3.04 4-5.65 4-3.31 0-6-2.69-6-6s2.69-6 6-6c1.66 0 3.14.69 4.22 1.78L13 11h7V4l-2.35 2.35z"/>
+          </svg>
+        </div>
+      </div>
+    </aside>
+
+    <!-- Main Viewport Area -->
+    <main class="main-viewport">
+      <!-- Top Status Bar with macOS native draggable region -->
+      <header class="topbar">
+        <div class="topbar-left">
+          <div class="account-pill-badge" id="account-pill" title="Nhấn để đổi tên hoặc màu sắc">
+            <div class="status-pulse-wrapper">
+              <span class="pulse-ring" id="topbar-pulse-ring"></span>
+              <span class="active-badge" id="topbar-status-dot"></span>
+            </div>
+            <span class="topbar-title" id="topbar-title">Tài khoản 1</span>
+            <span class="topbar-order-tag" id="topbar-order-tag">#1</span>
+            <svg class="pill-edit-icon" viewBox="0 0 24 24" width="13" height="13">
+              <path fill="currentColor" d="M3 17.25V21h3.75L17.81 9.94l-3.75-3.75L3 17.25zM20.71 7.04c.39-.39.39-1.02 0-1.41l-2.34-2.34c-.39-.39-1.02-.39-1.41 0l-1.83 1.83 3.75 3.75 1.83-1.83z"/>
+            </svg>
+          </div>
+          <span class="topbar-loading hidden" id="topbar-loading">
+            <span class="spinner-small"></span> Đang đồng bộ...
+          </span>
+        </div>
+        <div class="topbar-right">
+          <div id="split-selector-wrapper" class="split-selector-wrapper hidden">
+            <label for="split-select">Màn hình 2:</label>
+            <select id="split-select" class="split-dropdown">
+              <!-- Options populated dynamically -->
+            </select>
+          </div>
+          <button class="topbar-btn" id="btn-edit-account" title="Chỉnh sửa tên / màu nhận diện">
+            <svg viewBox="0 0 24 24" width="16" height="16">
+              <path fill="currentColor" d="M3 17.25V21h3.75L17.81 9.94l-3.75-3.75L3 17.25zM20.71 7.04c.39-.39.39-1.02 0-1.41l-2.34-2.34c-.39-.39-1.02-.39-1.41 0l-1.83 1.83 3.75 3.75 1.83-1.83z"/>
+            </svg>
+          </button>
+          <button class="topbar-btn btn-danger" id="btn-delete-account" title="Xóa tài khoản này">
+            <svg viewBox="0 0 24 24" width="16" height="16">
+              <path fill="currentColor" d="M6 19c0 1.1.9 2 2 2h8c1.1 0 2-.9 2-2V7H6v12zM19 4h-3.5l-1-1h-5l-1 1H5v2h14V4z"/>
+            </svg>
+          </button>
+        </div>
+      </header>
+
+      <!-- Webview Slots Container with Discord Loaders -->
+      <div id="webviews-container" class="webviews-container">
+        <!-- Webview slots dynamically mounted here -->
+      </div>
+    </main>
+  </div>
+
+  <!-- Account Edit Modal -->
+  <div id="modal-edit" class="modal-backdrop hidden">
+    <div class="modal-box">
+      <h3 id="modal-title">Cấu hình Tài khoản</h3>
+      <div class="form-group">
+        <label for="input-account-name">Tên hiển thị:</label>
+        <input type="text" id="input-account-name" placeholder="Ví dụ: Nick Chính, Công việc, Gaming..." />
+      </div>
+      <div class="form-group">
+        <label>Màu sắc nhận diện:</label>
+        <div class="color-picker-row" id="color-picker">
+          <span class="color-chip selected" data-color="#5865F2" style="background: #5865F2;"></span>
+          <span class="color-chip" data-color="#57F287" style="background: #57F287;"></span>
+          <span class="color-chip" data-color="#FEE75C" style="background: #FEE75C;"></span>
+          <span class="color-chip" data-color="#EB459E" style="background: #EB459E;"></span>
+          <span class="color-chip" data-color="#ED4245" style="background: #ED4245;"></span>
+          <span class="color-chip" data-color="#00A8FC" style="background: #00A8FC;"></span>
+        </div>
+      </div>
+      <div class="modal-actions">
+        <button id="modal-btn-cancel" class="btn btn-secondary">Hủy</button>
+        <button id="modal-btn-save" class="btn btn-primary">Lưu</button>
+      </div>
+    </div>
+  </div>
+
+  <!-- Confirm Delete / Close Modal -->
+  <div id="modal-confirm-delete" class="modal-backdrop hidden">
+    <div class="modal-box modal-box-confirm">
+      <div class="confirm-icon-wrap">
+        <svg viewBox="0 0 24 24" width="28" height="28" fill="none" stroke="currentColor" stroke-width="2">
+          <path stroke-linecap="round" stroke-linejoin="round" d="M12 9v3.75m-9.303 3.376c-.866 1.5.217 3.374 1.948 3.374h14.71c1.73 0 2.813-1.874 1.948-3.374L13.949 3.378c-.866-1.5-3.032-1.5-3.898 0L2.697 16.126zM12 15.75h.007v.008H12v-.008z" />
+        </svg>
+      </div>
+      <h3 id="confirm-delete-title">Đóng tài khoản?</h3>
+      <p class="confirm-delete-desc" id="confirm-delete-desc">
+        Bạn có chắc chắn muốn đóng <strong id="confirm-account-name">Tài khoản này</strong>? Phiên làm việc này sẽ được gỡ khỏi danh sách.
+      </p>
+      <div class="modal-actions">
+        <button id="modal-btn-confirm-cancel" class="btn btn-secondary">Hủy</button>
+        <button id="modal-btn-confirm-delete" class="btn btn-danger">Đóng tài khoản</button>
+      </div>
+    </div>
+  </div>
+
+  <script src="renderer.js"></script>
+</body>
+</html>
