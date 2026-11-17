@@ -17,96 +17,51 @@ Multi-account Discord desktop client with isolated sessions, split-view multitas
 
 ---
 
-## 🚀 Installation & Getting Started
+## 🚀 Installation & Quick Start
 
-### Method 1: Pre-built Release (Recommended for End Users)
+Choose the easiest method for your machine:
 
-Download the ready-to-use package directly from [Releases](https://github.com/Vuonggba1403/discord-multi-account/releases):
+### 1️⃣ Option 1: Git Clone (Fastest for Terminal / Git users)
 
-- **macOS**: Download `.dmg`, open it, and drag `MultiCord Web.app` into your `Applications` folder.
-- **Windows**: Download `.exe` installer or standalone portable executable and run directly.
-- **Linux**: Download `.AppImage` or `.deb` package and execute.
-
-> *Zero setup required: No Node.js, npm, or terminal commands needed.*
-
----
-
-### Method 2: 1-Click Launch Scripts (From Source)
-
-Clone the repository and run the automated script for your operating system:
-
-```bash
-git clone https://github.com/Vuonggba1403/discord-multi-account.git
-cd discord-multi-account
-```
-
-| Operating System | Terminal Command | Double-Click Alternative |
-| :--- | :--- | :--- |
-| **macOS / Linux** | `./start.sh` | Double-click `Run-MultiCord.command` in Finder |
-| **Windows** | `start.bat` | Double-click `start.bat` in File Explorer |
-
-> 💡 **Auto-Setup:** The launch scripts automatically detect Node.js (offering 1-click installation if missing), install required dependencies on first launch, and boot the application immediately.
-
----
-
-### Method 3: Complete A-to-Z Guide for Fresh Machines
-
-#### 🪟 Windows Setup (Step-by-Step)
-1. **Install Node.js (One-time prerequisite)**:
-   - Go to [nodejs.org](https://nodejs.org/) and download the **LTS** Windows Installer (`.msi`).
-   - Run the downloaded installer and click `Next` through the wizard (keep default settings) until finished.
-2. **Download MultiCord Web**:
-   - On this repository, click the green `<> Code` button and select **Download ZIP**.
-   - Right-click the downloaded `.zip` file and select **Extract All...**.
-3. **Launch**:
-   - Open the extracted folder and **double-click `start.bat`**.
-   - The launcher will install required packages automatically and open the client.
-
-#### 🍏 macOS Setup (Step-by-Step)
-1. **Install Node.js (One-time prerequisite)**:
-   - Go to [nodejs.org](https://nodejs.org/) and download the **LTS** macOS Installer (`.pkg`).
-   - Open the `.pkg` file and complete the standard installation wizard.
-2. **Download MultiCord Web**:
-   - Click the green `<> Code` button and select **Download ZIP**.
-   - Double-click the `.zip` file to extract the folder.
-3. **Launch**:
-   - Open the extracted folder and **double-click `Run-MultiCord.command`** (or run `./start.sh` in Terminal).
-   - The client will set up dependencies and launch immediately.
-
----
-
-### Method 4: AI Agent Prompt (Claude Code / Codex / ChatGPT / Cursor)
-
-If you use an AI assistant or coding terminal, copy and paste this prompt:
-
-```text
-Please clone https://github.com/Vuonggba1403/discord-multi-account.git, ensure Node.js is installed on my system, install dependencies, and launch the MultiCord Web application.
-```
-
-Or execute this direct 1-liner command in your terminal:
+Run the single 1-liner command for your operating system:
 
 - **Windows (PowerShell)**:
   ```powershell
   git clone https://github.com/Vuonggba1403/discord-multi-account.git; cd discord-multi-account; .\start.bat
   ```
+
 - **macOS / Linux (Terminal)**:
   ```bash
   git clone https://github.com/Vuonggba1403/discord-multi-account.git && cd discord-multi-account && ./start.sh
   ```
 
+> 💡 *The script automatically verifies Node.js, installs required dependencies, and launches the application.*
+
 ---
 
-### Method 5: Manual Developer CLI
+### 2️⃣ Option 2: Download ZIP (Easiest for Fresh Machines without Git)
 
-Prerequisites: [Node.js](https://nodejs.org/) (v18 or higher recommended).
+No terminal or Git required. Ideal for brand-new computers:
 
-```bash
-# 1. Install dependencies
-npm install
+1. **Download**: Click the green **`<> Code`** button at the top of this repository -> select **[Download ZIP](https://github.com/Vuonggba1403/discord-multi-account/archive/refs/heads/main.zip)**.
+2. **Extract**: Unzip the downloaded file to any folder on your computer.
+3. **Launch**:
+   - **On Windows**: Open the folder and double-click **`start.bat`**.
+   - **On macOS**: Open the folder and double-click **`Run-MultiCord.command`** (or run `./start.sh` in Terminal).
 
-# 2. Launch the desktop client
-npm start
+> ⚡ *First-time setup: The launcher will automatically detect Node.js (auto-downloading if missing), install Electron libraries in 20-30 seconds, and open the app.*
+
+---
+
+### 3️⃣ Option 3: Automated Setup via AI (Claude / ChatGPT / Codex / Cursor)
+
+If you are using an AI coding assistant (such as **Claude Code**, **Cursor**, **ChatGPT**, or **Codex**), simply paste this prompt:
+
+```text
+Please clone https://github.com/Vuonggba1403/discord-multi-account.git, ensure Node.js is installed on my system, install dependencies, and launch the MultiCord Web application.
 ```
+
+The AI agent will clone the repository, check prerequisites, install packages, and launch MultiCord Web automatically.
 
 ---
 
