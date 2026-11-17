@@ -49,7 +49,54 @@ cd discord-multi-account
 
 ---
 
-### Method 3: Developer Setup
+### Method 3: Complete A-to-Z Guide for Fresh Machines
+
+#### 🪟 Windows Setup (Step-by-Step)
+1. **Install Node.js (One-time prerequisite)**:
+   - Go to [nodejs.org](https://nodejs.org/) and download the **LTS** Windows Installer (`.msi`).
+   - Run the downloaded installer and click `Next` through the wizard (keep default settings) until finished.
+2. **Download MultiCord Web**:
+   - On this repository, click the green `<> Code` button and select **Download ZIP**.
+   - Right-click the downloaded `.zip` file and select **Extract All...**.
+3. **Launch**:
+   - Open the extracted folder and **double-click `start.bat`**.
+   - The launcher will install required packages automatically and open the client.
+
+#### 🍏 macOS Setup (Step-by-Step)
+1. **Install Node.js (One-time prerequisite)**:
+   - Go to [nodejs.org](https://nodejs.org/) and download the **LTS** macOS Installer (`.pkg`).
+   - Open the `.pkg` file and complete the standard installation wizard.
+2. **Download MultiCord Web**:
+   - Click the green `<> Code` button and select **Download ZIP**.
+   - Double-click the `.zip` file to extract the folder.
+3. **Launch**:
+   - Open the extracted folder and **double-click `Run-MultiCord.command`** (or run `./start.sh` in Terminal).
+   - The client will set up dependencies and launch immediately.
+
+---
+
+### Method 4: AI Agent Prompt (Claude Code / Codex / ChatGPT / Cursor)
+
+If you use an AI assistant or coding terminal, copy and paste this prompt:
+
+```text
+Please clone https://github.com/Vuonggba1403/discord-multi-account.git, ensure Node.js is installed on my system, install dependencies, and launch the MultiCord Web application.
+```
+
+Or execute this direct 1-liner command in your terminal:
+
+- **Windows (PowerShell)**:
+  ```powershell
+  git clone https://github.com/Vuonggba1403/discord-multi-account.git; cd discord-multi-account; .\start.bat
+  ```
+- **macOS / Linux (Terminal)**:
+  ```bash
+  git clone https://github.com/Vuonggba1403/discord-multi-account.git && cd discord-multi-account && ./start.sh
+  ```
+
+---
+
+### Method 5: Manual Developer CLI
 
 Prerequisites: [Node.js](https://nodejs.org/) (v18 or higher recommended).
 
