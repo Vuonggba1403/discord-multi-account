@@ -1,177 +1,86 @@
 # MultiCord Web 🚀
 
-[![License: MIT](https://img.shields.io/badge/License-MIT-blue.svg)](LICENSE)
-[![Platform](https://img.shields.io/badge/Platform-macOS%20%7C%20Windows%20%7C%20Linux-lightgrey.svg)]()
-[![Electron](https://img.shields.io/badge/Electron-v34-47848F.svg)](https://www.electronjs.org/)
-[![Discord](https://img.shields.io/badge/Discord-Official%20Web-5865F2.svg)](https://discord.com)
-
-**MultiCord Web** is an open-source, ultra-lightweight desktop client that enables you to run, switch, and split-screen **multiple independent Discord accounts simultaneously** in a single unified window.
-
-Built with performance, privacy, and native desktop aesthetics in mind for **macOS**, **Windows**, and **Linux**.
+Multi-account Discord desktop client with isolated sessions, split-view multitasking, and native OS aesthetics for **macOS**, **Windows**, and **Linux**.
 
 ---
 
-## ✨ Features
+## ⚡ Quick Start
 
-- 🔒 **Isolated Session Sandboxing**: Each Discord account runs in its own permanent session partition (`persist:discord_acc_*`). Cookies, tokens, and local storage remain 100% isolated. Logging into multiple accounts never causes conflicts or session drops.
-- ⚡ **100% Safe & ToS Compliant**: MultiCord Web renders official Discord Web (`https://discord.com/app`) inside isolated Chromium webviews. Unlike modified clients (e.g., BetterDiscord, Vencord) that inject code into Discord's internal bundle, MultiCord operates identically to opening independent browser profiles. **Zero risk of account suspensions or bans.**
-- 🪟 **Side-by-Side Split View**: Monitor two Discord accounts simultaneously with a 50/50 dual-pane mode (`Cmd/Ctrl + D`). Chat on your main account while monitoring servers or work chats on your secondary account.
-- 🎨 **Native OS Design & Polish**:
-  - **macOS**: Native traffic-light controls integration, blurred glassmorphic header pill, live status radar pulse, and Apple squircle icon.
-  - **Windows & Linux**: Clean titlebar overlay with native minimize, maximize, and close controls.
-- 🔔 **Real-Time Notification Badges**: Unread message badges automatically appear on each account icon in the sidebar and sync to the system Dock/Taskbar.
-- 🖼️ **Automatic Avatar Synchronization**: Extracts your actual Discord profile picture directly into the switcher bar.
-- 🚀 **Lag-Free 60FPS Performance**:
-  - **Lazy Loading**: Inactive accounts are kept suspended until opened to drastically reduce CPU and RAM footprint.
-  - **Spellcheck Latency Eliminator**: Spellchecking is streamlined to remove typing latency in crowded Discord channels.
-  - Tuned GPU flags prevent Skia buffer stutter on Apple Silicon (M-series) and modern GPUs.
-- ⌨️ **Productivity Keyboard Shortcuts**: Navigate seamlessly between accounts without lifting your hands from the keyboard.
-
----
-
-## 🚀 Quick Start (1-Click Launchers)
-
-No manual setup or complex configurations required. Choose your platform:
-
-### 🍏 macOS & 🐧 Linux
-
-#### Option 1: One-Click Terminal Command
-Open your terminal inside the project directory and run:
-```bash
-./start.sh
-```
-> **What `start.sh` does automatically:**
-> 1. Verifies if **Node.js** is installed. If missing, it offers automatic installation via Homebrew (macOS) or APT (Ubuntu/Debian).
-> 2. Automatically installs project dependencies (`npm install`) on first launch.
-> 3. Launches the application immediately.
-
-#### Option 2: Double-Click in Finder (macOS)
-Simply **double-click** the [`Run-MultiCord.command`](./Run-MultiCord.command) file directly inside Finder. macOS will launch the application automatically.
-
----
-
-### 🪟 Windows
-
-#### Option 1: Double-Click in File Explorer
-Simply **double-click** [`start.bat`](./start.bat) in the project folder.
-
-#### Option 2: Command Prompt or PowerShell
-```cmd
-start.bat
-```
-> **What `start.bat` does automatically:**
-> 1. Detects if Node.js is installed. If missing, it leverages Windows Package Manager (`winget`) to install Node.js LTS automatically.
-> 2. Installs required packages on first launch.
-> 3. Boots MultiCord Web seamlessly.
-
----
-
-### 💻 Manual CLI (For Developers)
-
-If you already have [Node.js](https://nodejs.org/) installed:
+Clone the repository and launch with the 1-click script for your operating system:
 
 ```bash
-# 1. Clone repository
-git clone https://github.com/<your-username>/discord-multi-web.git
-cd discord-multi-web
-
-# 2. Install dependencies
-npm install
-
-# 3. Start development app
-npm start
+git clone https://github.com/Vuonggba1403/discord-multi-account.git
+cd discord-multi-account
 ```
 
----
-
-## ⌨️ Keyboard Shortcuts
-
-| Shortcut (macOS) | Shortcut (Windows/Linux) | Action |
+| Operating System | Terminal Command | Double-Click Alternative |
 | :--- | :--- | :--- |
-| `Cmd + 1` ... `Cmd + 9` | `Ctrl + 1` ... `Ctrl + 9` | Switch instantly to account #1 – #9 |
-| `Cmd + T` | `Ctrl + T` | Add a new Discord account slot |
-| `Cmd + D` | `Ctrl + D` | Toggle Dual-Screen (Split View) |
-| `Cmd + R` | `Ctrl + R` | Reload the active Discord account |
+| **macOS / Linux** | `./start.sh` | Double-click `Run-MultiCord.command` in Finder |
+| **Windows** | `start.bat` | Double-click `start.bat` in File Explorer |
+
+> 💡 **Zero-Config Setup:** The launch scripts automatically check for Node.js (offering 1-click auto-install if missing), install required dependencies on first launch, and boot the application immediately.
 
 ---
 
-## 📦 Building Standalone Installers (.dmg, .exe, .deb)
+## ✨ Key Features
 
-You can package MultiCord Web into standalone executables that require **no Node.js or Terminal on the target machine**:
+- **Multi-Session Sandboxing**: Each account runs inside an isolated Electron partition (`persist:discord_acc_*`). Cookies, tokens, and storage never overlap or log you out.
+- **Split-View Multitasking**: Work with two active Discord accounts side-by-side on a 50/50 split screen (`Cmd/Ctrl + D`).
+- **100% ToS Compliant & Safe**: Powered by official Discord Web in sandboxed Chromium webviews. No client modification, no API tampering, zero ban risk.
+- **Native OS Experience**:
+  - **macOS**: Native traffic-light controls, blurred glassmorphic header pill, live status radar pulse, and Apple squircle dock icon.
+  - **Windows & Linux**: Integrated titlebar overlay with native minimize, maximize, and close controls.
+- **Unread Badges**: Real-time unread message counts on sidebar avatars and system Dock/Taskbar.
+- **Smooth 60FPS Performance**: Lazy-loaded account slots and latency-free keyboard input optimizations.
+
+---
+
+## ⌨️ Shortcuts
+
+| Action | macOS | Windows / Linux |
+| :--- | :--- | :--- |
+| **Switch Account** | `Cmd + 1` ... `Cmd + 9` | `Ctrl + 1` ... `Ctrl + 9` |
+| **Add Account** | `Cmd + T` | `Ctrl + T` |
+| **Toggle Split View** | `Cmd + D` | `Ctrl + D` |
+| **Reload Account** | `Cmd + R` | `Ctrl + R` |
+
+---
+
+## 📦 Build Standalone Installers
+
+Create standalone executables that require no Node.js or Terminal on user machines:
 
 ```bash
-# Package for macOS (.dmg and .zip)
-npm run dist:mac
-
-# Package for Windows (.exe installer and portable)
-npm run dist:win
-
-# Package for Linux (.AppImage and .deb)
-npm run dist:linux
-
-# Package for current host OS
-npm run dist
+npm run dist:mac    # Generates .dmg & .zip for macOS
+npm run dist:win    # Generates .exe installer & portable for Windows
+npm run dist:linux  # Generates .AppImage & .deb for Linux
 ```
-
-All compiled binaries will be generated inside the `dist/` directory.
-
----
-
-## 🔒 Security & Privacy FAQ
-
-#### Does this app store my password or Discord token?
-**No.** All credentials, 2-Factor Authentication (2FA), and QR code logins occur directly between your local Chromium sandbox and Discord's encrypted endpoints (`https://discord.com`). The application contains no tracking, telemetry, or external backend servers.
-
-#### Can using this get my Discord accounts banned?
-**No.** MultiCord Web is simply an isolated multi-instance web browser. It does not inject code into Discord's client bundle, modify APIs, unlock Nitro perks, or run user bots. To Discord servers, each session looks like a standard Google Chrome browser tab.
-
-#### Does logging in here log me out of my phone or official Discord app?
-**No.** Discord natively supports simultaneous sessions across multiple devices. Logging in on MultiCord Web will not interrupt your active sessions on mobile or desktop apps.
+Compiled binaries are output to the `dist/` folder.
 
 ---
 
-## 📂 Project Structure
-
-```text
-├── main.js                 # Electron main process (lifecycle, multi-window config, security)
-├── preload.js              # Secure context-bridge between Electron and webview
-├── index.html              # Core application layout (sidebar, topbar, webview slots, modals)
-├── styles.css              # Discord Dark theme styling, glassmorphism, animations & layout
-├── renderer.js             # Account management, session storage, unread badges, split view
-├── start.sh                # 1-Click launcher script for macOS / Linux
-├── start.bat               # 1-Click launcher script for Windows
-├── Run-MultiCord.command   # Double-click launcher for macOS Finder
-├── icon.png / icon.icns    # Official Apple squircle & desktop icons
-└── package.json            # Build scripts, metadata, and electron-builder configurations
-```
-
----
-
-## 📝 Changelog & Release Notes
+## 📝 Release Notes
 
 ### Features (`feat`)
-- `feat(core)`: Multi-session isolation engine leveraging Electron `persist:discord_acc_*` partition sandboxes.
-- `feat(ui)`: Discord-inspired dark sidebar with active white pill indicators and smooth selection animations.
-- `feat(split-view)`: Dual-pane screen splitter allowing two concurrent active accounts side-by-side with dynamic account selector dropdown.
-- `feat(badges)`: Real-time unread message counters on account avatars, dot indicators for silent notifications, and native OS Dock badge synchronization.
-- `feat(avatar)`: Dynamic profile picture auto-sync from Discord CDN independent of language settings.
-- `feat(topbar)`: Glassmorphic account pill badge with animated radar status ring, smooth entrance bounce, and quick-click customization.
-- `feat(cross-platform)`: Out-of-the-box support for macOS (`hiddenInset` with native traffic lights), Windows (`titleBarOverlay` controls), and Linux.
-- `feat(launchers)`: 1-Click zero-config scripts:
-  - `start.sh` for macOS / Linux (auto-detects and installs Node.js via Homebrew/APT if absent).
-  - `start.bat` for Windows (auto-detects and installs Node.js via Winget if absent).
-  - `Run-MultiCord.command` for macOS Finder double-click launch.
+- `feat(core)`: Multi-session isolation with persistent Electron partitions.
+- `feat(ui)`: Discord-inspired dark sidebar with active indicator pills and smooth transitions.
+- `feat(split-view)`: Dual-pane screen splitter with dynamic secondary account selector.
+- `feat(badges)`: Live unread counters, notification dots, and system Dock/Taskbar synchronization.
+- `feat(avatar)`: Dynamic Discord profile picture extraction independent of UI language.
+- `feat(topbar)`: Glassmorphic account pill with animated radar status ring and quick-click customization.
+- `feat(cross-platform)`: Native window styling for macOS, Windows 10/11, and Linux.
+- `feat(launchers)`: 1-click auto-setup scripts (`start.sh`, `start.bat`, `Run-MultiCord.command`).
 
 ### Fixes & Optimizations (`fix`)
-- `fix(perf)`: Eliminated typing latency by disabling Chromium spellcheck thread overhead.
-- `fix(gpu)`: Resolved Skia mailbox overlay buffer errors on macOS Apple Silicon (M-series) by removing conflicting GPU rasterization flags.
-- `fix(avatar)`: Fixed profile avatar extraction in non-English locales (e.g., Vietnamese) by targeting user panel avatars directly.
-- `fix(icon)`: Rebuilt macOS app icon to match Apple's official squircle standard with 100% transparent corners (no white border artifacts).
-- `fix(ui)`: Removed internal debug partition identifiers from the topbar header for a clean native aesthetic.
-- `fix(safety)`: Added confirmation modal before deleting an account session to prevent accidental closure.
+- `fix(perf)`: Disabled spellcheck background thread to eliminate typing latency in channels.
+- `fix(gpu)`: Removed conflicting GPU rasterization flags to resolve macOS Skia buffer stutter.
+- `fix(avatar)`: Resolved profile picture detection issues when running Discord in Vietnamese or other non-English locales.
+- `fix(icon)`: Rebuilt macOS app icon to match Apple's squircle grid with 100% transparent corners.
+- `fix(ui)`: Removed internal partition debug labels from the header for a clean native look.
+- `fix(safety)`: Added confirmation modal before deleting an account session.
 
 ---
 
 ## 📄 License
 
-This project is licensed under the [MIT License](LICENSE). You are free to use, modify, and distribute it.
+This project is licensed under the [MIT License](LICENSE).
