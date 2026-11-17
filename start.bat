@@ -21,33 +21,20 @@ if exist "%ProgramFiles(x86)%\nodejs\node.exe" (
     goto :CHECK_DEPS
 )
 
-:: 3. Node.js is missing. Auto-installing official Node.js LTS via PowerShell...
-echo [INFO] Node.js is not installed on this system.
-echo [INFO] Automatically downloading official Node.js LTS from nodejs.org...
-echo [INFO] Please click 'Yes' if Windows asks for administrator permission.
+:: 3. Node.js is missing! Notify user and open download page
+echo ==========================================================
+echo [ERROR] Node.js is NOT installed on your computer!
+echo MultiCord Web requires Node.js to run.
 echo.
-
-powershell -NoProfile -ExecutionPolicy Bypass -Command ^
-  "Write-Host '[1/2] Downloading official Node.js installer...' -ForegroundColor Cyan; " ^
-  "$msi = [System.IO.Path]::Combine($env:TEMP, 'node_setup.msi'); " ^
-  "[Net.ServicePointManager]::SecurityProtocol = [Net.SecurityProtocolType]::Tls12; " ^
-  "(New-Object System.Net.WebClient).DownloadFile('https://nodejs.org/dist/v20.18.0/node-v20.18.0-x64.msi', $msi); " ^
-  "Write-Host '[2/2] Installing Node.js silently...' -ForegroundColor Cyan; " ^
-  "Start-Process msiexec.exe -ArgumentList '/i', $msi, '/qn', '/norestart' -Wait; " ^
-  "Remove-Item -Force $msi -ErrorAction SilentlyContinue"
-
-:: Update PATH in current session
-if exist "%ProgramFiles%\nodejs\node.exe" (
-    set "PATH=%ProgramFiles%\nodejs;%APPDATA%\npm;!PATH!"
-    echo [INFO] Node.js has been successfully installed!
-    echo.
-) else (
-    echo [WARNING] Automatic installation could not finish.
-    echo Please download and install Node.js manually from: https://nodejs.org/
-    echo (Choose 'LTS' Windows Installer .msi, then run start.bat again).
-    pause
-    exit /b 1
-)
+echo 1. Opening official download website: https://nodejs.org/
+echo 2. Click the green 'LTS' button to download Windows Installer (.msi).
+echo 3. Run the installer and click Next -> Next -> Install.
+echo 4. Once finished, double-click 'start.bat' again!
+echo ==========================================================
+echo.
+start https://nodejs.org/
+pause
+exit /b 1
 
 :CHECK_DEPS
 :: Check if node_modules exists

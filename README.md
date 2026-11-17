@@ -4,9 +4,21 @@ Multi-account Discord desktop client with isolated sessions, split-view multitas
 
 ---
 
-## 🚀 Quick Start / Hướng Dẫn Cài Đặt
+## ⚠️ Prerequisite: Install Node.js (Yêu cầu duy nhất: Cài đặt Node.js)
 
-Choose the easiest method for your machine *(Chọn cách cài đặt phù hợp nhất)*:
+MultiCord Web is built on the Electron desktop framework, which **strictly requires Node.js** to run. If your machine does not have Node.js yet, install it once (takes ~1 minute):
+
+👉 **Official Download: [https://nodejs.org/](https://nodejs.org/)**
+- **Windows**: Click the green **LTS** button to download Windows Installer (`.msi`). Run the file and click **Next** -> **Next** -> **Install** -> **Finish**.
+- **macOS**: Click the green **LTS** button to download macOS Installer (`.pkg`) and complete the wizard.
+
+*(Bạn chỉ cần cài đặt Node.js một lần duy nhất trên máy. Sau đó, chọn 1 trong 3 cách bên dưới để khởi chạy ứng dụng).*
+
+---
+
+## 🚀 Quick Start / 3 Cách Khởi Chạy Ứng Dụng
+
+Sau khi máy đã có Node.js, chọn cách thuận tiện nhất cho bạn:
 
 ### 1️⃣ Method 1: Git Clone (1-Liner for Terminal / Git users)
 *Dành cho máy đã cài sẵn Git – Chạy đúng 1 dòng lệnh duy nhất:*
@@ -21,7 +33,7 @@ Choose the easiest method for your machine *(Chọn cách cài đặt phù hợp
   git clone https://github.com/Vuonggba1403/discord-multi-account.git && cd discord-multi-account && ./start.sh
   ```
 
-> 💡 *The script automatically verifies Node.js, installs required dependencies, and launches the application.*
+> 💡 *The script automatically installs required dependencies on first run and opens the app.*
 
 ---
 
@@ -34,7 +46,7 @@ Choose the easiest method for your machine *(Chọn cách cài đặt phù hợp
    - **Windows**: Double-click **`start.bat`** *(Nhấp đúp chuột vào file start.bat)*.
    - **macOS**: Double-click **`Run-MultiCord.command`** *(Nhấp đúp chuột vào file Run-MultiCord.command)*.
 
-> ⚡ *Auto-Setup: The launcher will automatically detect Node.js (auto-downloading if missing), install Electron libraries in 20-30 seconds, and open the app! (Hệ thống tự động cài đặt ngầm và bật app lên).*
+> ⚡ *First-time launch: The script will automatically install required libraries in 20-30 seconds and open the app! (Nếu chưa có Node.js, script sẽ tự động mở trang web nodejs.org để bạn tải).*
 
 ---
 
