@@ -4,9 +4,36 @@ Multi-account Discord desktop client with isolated sessions, split-view multitas
 
 ---
 
-## ⚡ Quick Start
+## ✨ Key Features
 
-Clone the repository and launch with the 1-click script for your operating system:
+- **Multi-Session Sandboxing**: Each account operates in an isolated Electron partition (`persist:discord_acc_*`). Cookies, tokens, and storage never overlap or disconnect.
+- **Split-View Multitasking**: View and control two active Discord accounts side-by-side with a 50/50 split screen (`Cmd/Ctrl + D`).
+- **100% ToS Compliant**: Powered by official Discord Web inside sandboxed Chromium webviews. No client modification, no API tampering, zero risk of account suspension.
+- **Native OS Aesthetics**:
+  - **macOS**: Native traffic-light controls, blurred glassmorphic header pill, live status radar pulse, and Apple squircle dock icon.
+  - **Windows & Linux**: Clean titlebar overlay with native minimize, maximize, and close controls.
+- **Real-Time Unread Badges**: Unread message counts on sidebar avatars with macOS Dock and Windows Taskbar synchronization.
+- **Smooth 60FPS Performance**: Optimized lazy loading and latency-free keyboard input handling.
+
+---
+
+## 🚀 Installation & Getting Started
+
+### Method 1: Pre-built Release (Recommended for End Users)
+
+Download the ready-to-use package directly from [Releases](https://github.com/Vuonggba1403/discord-multi-account/releases):
+
+- **macOS**: Download `.dmg`, open it, and drag `MultiCord Web.app` into your `Applications` folder.
+- **Windows**: Download `.exe` installer or standalone portable executable and run directly.
+- **Linux**: Download `.AppImage` or `.deb` package and execute.
+
+> *Zero setup required: No Node.js, npm, or terminal commands needed.*
+
+---
+
+### Method 2: 1-Click Launch Scripts (From Source)
+
+Clone the repository and run the automated script for your operating system:
 
 ```bash
 git clone https://github.com/Vuonggba1403/discord-multi-account.git
@@ -18,20 +45,21 @@ cd discord-multi-account
 | **macOS / Linux** | `./start.sh` | Double-click `Run-MultiCord.command` in Finder |
 | **Windows** | `start.bat` | Double-click `start.bat` in File Explorer |
 
-> 💡 **Zero-Config Setup:** The launch scripts automatically check for Node.js (offering 1-click auto-install if missing), install required dependencies on first launch, and boot the application immediately.
+> 💡 **Auto-Setup:** The launch scripts automatically detect Node.js (offering 1-click installation if missing), install required dependencies on first launch, and boot the application immediately.
 
 ---
 
-## ✨ Key Features
+### Method 3: Developer Setup
 
-- **Multi-Session Sandboxing**: Each account runs inside an isolated Electron partition (`persist:discord_acc_*`). Cookies, tokens, and storage never overlap or log you out.
-- **Split-View Multitasking**: Work with two active Discord accounts side-by-side on a 50/50 split screen (`Cmd/Ctrl + D`).
-- **100% ToS Compliant & Safe**: Powered by official Discord Web in sandboxed Chromium webviews. No client modification, no API tampering, zero ban risk.
-- **Native OS Experience**:
-  - **macOS**: Native traffic-light controls, blurred glassmorphic header pill, live status radar pulse, and Apple squircle dock icon.
-  - **Windows & Linux**: Integrated titlebar overlay with native minimize, maximize, and close controls.
-- **Unread Badges**: Real-time unread message counts on sidebar avatars and system Dock/Taskbar.
-- **Smooth 60FPS Performance**: Lazy-loaded account slots and latency-free keyboard input optimizations.
+Prerequisites: [Node.js](https://nodejs.org/) (v18 or higher recommended).
+
+```bash
+# 1. Install dependencies
+npm install
+
+# 2. Launch the desktop client
+npm start
+```
 
 ---
 
@@ -42,42 +70,29 @@ cd discord-multi-account
 | **Switch Account** | `Cmd + 1` ... `Cmd + 9` | `Ctrl + 1` ... `Ctrl + 9` |
 | **Add Account** | `Cmd + T` | `Ctrl + T` |
 | **Toggle Split View** | `Cmd + D` | `Ctrl + D` |
-| **Reload Account** | `Cmd + R` | `Ctrl + R` |
+| **Reload Active Tab** | `Cmd + R` | `Ctrl + R` |
 
 ---
 
-## 📦 Build Standalone Installers
+## 📦 Building Standalone Binaries
 
-Create standalone executables that require no Node.js or Terminal on user machines:
+Package MultiCord Web into standalone executables for distribution:
 
 ```bash
 npm run dist:mac    # Generates .dmg & .zip for macOS
 npm run dist:win    # Generates .exe installer & portable for Windows
 npm run dist:linux  # Generates .AppImage & .deb for Linux
 ```
-Compiled binaries are output to the `dist/` folder.
+
+All compiled binaries are generated inside the `dist/` directory.
 
 ---
 
-## 📝 Release Notes
+## 🔒 Security & Privacy
 
-### Features (`feat`)
-- `feat(core)`: Multi-session isolation with persistent Electron partitions.
-- `feat(ui)`: Discord-inspired dark sidebar with active indicator pills and smooth transitions.
-- `feat(split-view)`: Dual-pane screen splitter with dynamic secondary account selector.
-- `feat(badges)`: Live unread counters, notification dots, and system Dock/Taskbar synchronization.
-- `feat(avatar)`: Dynamic Discord profile picture extraction independent of UI language.
-- `feat(topbar)`: Glassmorphic account pill with animated radar status ring and quick-click customization.
-- `feat(cross-platform)`: Native window styling for macOS, Windows 10/11, and Linux.
-- `feat(launchers)`: 1-click auto-setup scripts (`start.sh`, `start.bat`, `Run-MultiCord.command`).
-
-### Fixes & Optimizations (`fix`)
-- `fix(perf)`: Disabled spellcheck background thread to eliminate typing latency in channels.
-- `fix(gpu)`: Removed conflicting GPU rasterization flags to resolve macOS Skia buffer stutter.
-- `fix(avatar)`: Resolved profile picture detection issues when running Discord in Vietnamese or other non-English locales.
-- `fix(icon)`: Rebuilt macOS app icon to match Apple's squircle grid with 100% transparent corners.
-- `fix(ui)`: Removed internal partition debug labels from the header for a clean native look.
-- `fix(safety)`: Added confirmation modal before deleting an account session.
+- **Direct Authentication**: Passwords, QR code logins, and 2FA authentication occur directly between the local Chromium sandbox and official Discord servers (`https://discord.com`).
+- **No Third-Party Servers**: MultiCord Web contains no external analytics, tracking, or proxy services.
+- **Local Storage Only**: Account credentials and persistent session partitions remain encrypted on your local machine.
 
 ---
 
